@@ -6,9 +6,11 @@ let radius
 let r
 let g
 let b
+let bg
 
 function setup() {
   createCanvas(400, 400)
+  createRandomBGColor()
   // ----------------------
   // Task 1 
   // All four of these function calls make the body of setup cleaner. 
@@ -22,10 +24,11 @@ function setup() {
   radius = random(10,20)
   createRandomColor()
   noStroke()
+  
 }
 
 function draw() {
-  background('#C17E60')
+  background(bg)
   fill(color(r,g,b))
   circle(x,y,radius)
   x += dx // x = x + dx
@@ -102,6 +105,18 @@ function createRandomColor() {
   r = random(255)
   g = random(255)
   b = random(255)
+}
+
+function createRandomBGColor() {
+  bg = color(random(255), random(255), random(255))
+}
+
+// ----------------------
+// Task 6
+// Create a new ball here also
+// ----------------------
+function keyPressed() {
+  createRandomBGColor()
 }
 
 /** 
